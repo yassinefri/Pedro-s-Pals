@@ -1,0 +1,15 @@
+C:\Users\ADMIN\Desktop\B2 Classes 09-06\Infra&Dev\Pedro-s-Pals\APP\NetAppFiles\bin\Debug\net8.0\NetAppFiles.exe
+C:\Users\ADMIN\Desktop\B2 Classes 09-06\Infra&Dev\Pedro-s-Pals\APP\NetAppFiles\bin\Debug\net8.0\NetAppFiles.deps.json
+C:\Users\ADMIN\Desktop\B2 Classes 09-06\Infra&Dev\Pedro-s-Pals\APP\NetAppFiles\bin\Debug\net8.0\NetAppFiles.runtimeconfig.json
+C:\Users\ADMIN\Desktop\B2 Classes 09-06\Infra&Dev\Pedro-s-Pals\APP\NetAppFiles\bin\Debug\net8.0\NetAppFiles.dll
+C:\Users\ADMIN\Desktop\B2 Classes 09-06\Infra&Dev\Pedro-s-Pals\APP\NetAppFiles\bin\Debug\net8.0\NetAppFiles.pdb
+C:\Users\ADMIN\Desktop\B2 Classes 09-06\Infra&Dev\Pedro-s-Pals\APP\NetAppFiles\obj\Debug\net8.0\NetAppFiles.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ADMIN\Desktop\B2 Classes 09-06\Infra&Dev\Pedro-s-Pals\APP\NetAppFiles\obj\Debug\net8.0\NetAppFiles.AssemblyInfoInputs.cache
+C:\Users\ADMIN\Desktop\B2 Classes 09-06\Infra&Dev\Pedro-s-Pals\APP\NetAppFiles\obj\Debug\net8.0\NetAppFiles.AssemblyInfo.cs
+C:\Users\ADMIN\Desktop\B2 Classes 09-06\Infra&Dev\Pedro-s-Pals\APP\NetAppFiles\obj\Debug\net8.0\NetAppFiles.csproj.CoreCompileInputs.cache
+C:\Users\ADMIN\Desktop\B2 Classes 09-06\Infra&Dev\Pedro-s-Pals\APP\NetAppFiles\obj\Debug\net8.0\NetAppFiles.sourcelink.json
+C:\Users\ADMIN\Desktop\B2 Classes 09-06\Infra&Dev\Pedro-s-Pals\APP\NetAppFiles\obj\Debug\net8.0\NetAppFiles.dll
+C:\Users\ADMIN\Desktop\B2 Classes 09-06\Infra&Dev\Pedro-s-Pals\APP\NetAppFiles\obj\Debug\net8.0\refint\NetAppFiles.dll
+C:\Users\ADMIN\Desktop\B2 Classes 09-06\Infra&Dev\Pedro-s-Pals\APP\NetAppFiles\obj\Debug\net8.0\NetAppFiles.pdb
+C:\Users\ADMIN\Desktop\B2 Classes 09-06\Infra&Dev\Pedro-s-Pals\APP\NetAppFiles\obj\Debug\net8.0\NetAppFiles.genruntimeconfig.cache
+C:\Users\ADMIN\Desktop\B2 Classes 09-06\Infra&Dev\Pedro-s-Pals\APP\NetAppFiles\obj\Debug\net8.0\ref\NetAppFiles.dll
