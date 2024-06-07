@@ -1,0 +1,17 @@
+<!-- pet_profiles/templates/pet_profiles/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Pet Profiles</title>
+</head>
+<body>
+    <h1>Pet Profiles</h1>
+    <ul>
+        {% for pet in pet_profiles %}
+            <li><a href="{% url 'pet_profiles:detail' pet.id %}">{{ pet.name }}</a></li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'pet_profiles:create_pet_profile' %}">Create a new pet profile</a>
+</body>
+</html>

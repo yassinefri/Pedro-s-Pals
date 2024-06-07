@@ -1,0 +1,17 @@
+<!-- pet_profiles/templates/pet_profiles/create_pet_profile.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create Pet Profile</title>
+</head>
+<body>
+    <h1>Create Pet Profile</h1>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Save</button>
+    </form>
+    <a href="{% url 'pet_profiles:index' %}">Back to profiles</a>
+</body>
+</html>
