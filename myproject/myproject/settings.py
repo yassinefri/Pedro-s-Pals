@@ -80,7 +80,7 @@ DATABASES = {
         'NAME': 'pedros_pals_db',
         'USER': 'db_user',
         'PASSWORD': 'crob',
-        'HOST': 'localhost',
+        'HOST': 'db',
         'PORT': '5433',
     }
 }

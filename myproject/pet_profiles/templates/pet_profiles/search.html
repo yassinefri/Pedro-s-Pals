@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Search Results</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+</head>
+<body>
+    <h1>Search Results</h1>
+    <form method="GET" action="{% url 'pet_profiles:search' %}">
+        <input type="text" name="q" value="{{ query }}">
+        <button type="submit">Search</button>
+    </form>
+    <ul>
+        {% for pet in results %}
+            <li><a href="{% url 'pet_profiles:detail' pet.id %}">{{ pet.name }} ({{ pet.species }})</a></li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'pet_profiles:index' %}">Back to profiles</a>
+</body>
+</html>
