@@ -7,11 +7,12 @@ services:
       POSTGRES_DB: pedros_pals_db
       POSTGRES_USER: db_user
       POSTGRES_PASSWORD: crob
+      POSTGRES_INITDB_ARGS: "--encoding=UTF-8"
     volumes:
       - postgres_data:/var/lib/postgresql/data
       - ./postgresql.conf:/etc/postgresql/postgresql.conf
     ports:
-      - "5433:5433"
+      - "5432:5432"
     command: ["postgres", "-c", "config_file=/etc/postgresql/postgresql.conf"]
 
   web:
@@ -23,6 +24,15 @@ services:
       - "8000:8000"
     depends_on:
       - db
+    environment:
+      DB_NAME: pedros_pals_db
+      DB_USER: db_user
+      DB_PASSWORD: crob
+      DB_HOST: db
+      DB_PORT: 5432
+      SECRET_KEY: your_secret_key_here
+      DEBUG: 'True'
+      ALLOWED_HOSTS: 'localhost,127.0.0.1'
 
 volumes:
   postgres_data:
