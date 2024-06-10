@@ -33,6 +33,16 @@ services:
       SECRET_KEY: your_secret_key_here
       DEBUG: 'True'
       ALLOWED_HOSTS: 'localhost,127.0.0.1'
-
+  messaging:
+    build:
+      context: .
+      dockerfile: Dockerfile.messaging
+    command: python manage.py runserver 0.0.0.0:8001
+    volumes:
+      - .:/code
+    ports:
+      - "8001:8001"
+    depends_on:
+      - db
 volumes:
   postgres_data:
