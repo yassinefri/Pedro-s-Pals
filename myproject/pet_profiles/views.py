@@ -18,6 +18,7 @@ def detail(request, pet_id):
     pet = get_object_or_404(PetProfile, pk=pet_id)
     return render(request, 'pet_profiles/detail.html', {'pet': pet})
 
+@login_required
 def create_pet_profile(request):
     if request.method == 'POST':
         form = PetProfileForm(request.POST, request.FILES)
@@ -40,17 +41,6 @@ def search(request):
         results = PetProfile.objects.all()
     return render(request, 'pet_profiles/search.html', {'results': results, 'query': query})
 
-@login_required
-def create_pet_profile(request):
-    if request.method == 'POST':
-        form = PetProfileForm(request.POST, request.FILES)
-        if form.is_valid():
-            form.save()
-            return HttpResponseRedirect(reverse('pet_profiles:index'))
-    else:
-        form = PetProfileForm()
-    return render(request, 'pet_profiles/create_pet_profile.html', {'form': form})
-
 def signup(request):
     if request.method == 'POST':
         form = SignUpForm(request.POST)
@@ -64,3 +54,9 @@ def signup(request):
     else:
         form = SignUpForm()
     return render(request, 'registration/signup.html', {'form': form})
+
+def home(request):
+    if request.user.is_authenticated:
+        return render(request, 'home.html', {'username': request.user.username})
+    else:
+        return render(request, 'home.html', {'username': None})

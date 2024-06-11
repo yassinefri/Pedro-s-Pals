@@ -4,12 +4,13 @@
     <title>Send Message</title>
 </head>
 <body>
+    {% include 'navbar.html' %}
     <h1>Send Message</h1>
     <form method="post">
         {% csrf_token %}
         {{ form.as_p }}
         <button type="submit">Send</button>
     </form>
-    <a href="{% url 'inbox' %}">Back to Inbox</a>
+    <a href="{% url 'messaging:inbox' %}">Back to Inbox</a>
 </body>
 </html>

@@ -4,6 +4,7 @@
     <title>Inbox</title>
 </head>
 <body>
+    {% include 'navbar.html' %}
     <h1>Inbox</h1>
     <ul>
         {% for message in messages %}
@@ -12,6 +13,6 @@
             <li>No messages.</li>
         {% endfor %}
     </ul>
-    <a href="{% url 'send_message' %}">Send a new message</a>
+    <a href="{% url 'messaging:inbox' %}">Send a new message</a>
 </body>
 </html>

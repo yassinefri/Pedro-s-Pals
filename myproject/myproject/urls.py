@@ -27,4 +27,5 @@ urlpatterns = [
     path('accounts/signup/', pet_profiles_views.signup, name='signup'),  # Ajout du chemin pour l'inscription
     path('accounts/', include('django.contrib.auth.urls')),
     path('messaging/', include('messaging.urls')),
+    path('', pet_profiles_views.index, name='home'),
 ]

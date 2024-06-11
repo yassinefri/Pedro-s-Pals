@@ -17,7 +17,7 @@ def send_message(request):
             message = form.save(commit=False)
             message.sender = request.user
             message.save()
-            return redirect('inbox')
+            return redirect('messaging:inbox')
     else:
         form = MessageForm()
     return render(request, 'messaging/send_message.html', {'form': form})
