@@ -1,18 +1,15 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Inbox</title>
-</head>
-<body>
-    {% include 'navbar.html' %}
-    <h1>Inbox</h1>
-    <ul>
-        {% for message in messages %}
-            <li><strong>{{ message.sender }}</strong>: {{ message.body }} ({{ message.timestamp }})</li>
-        {% empty %}
-            <li>No messages.</li>
-        {% endfor %}
-    </ul>
-    <a href="{% url 'messaging:inbox' %}">Send a new message</a>
-</body>
-</html>
+{% extends 'base.html' %}
+
+{% block title %}Inbox{% endblock %}
+
+{% block content %}
+<h1>Inbox</h1>
+<ul>
+  {% for message in messages %}
+  <li><strong>{{ message.sender }}:</strong> {{ message.body }} <em>({{ message.timestamp }})</em></li>
+  {% empty %}
+  <li>No messages.</li>
+  {% endfor %}
+</ul>
+<a href="{% url 'messaging:send_message' %}">Send a new message</a>
+{% endblock %}

@@ -1,42 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Pet Profiles</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-</head>
-<body class="container">
-    {% include 'navbar.html' %}
-    <nav class="navbar navbar-expand-lg navbar-light bg-light mb-4">
-        <a class="navbar-brand" href="#">Pedro's Pals</a>
-        <div class="collapse navbar-collapse">
-            <ul class="navbar-nav ml-auto">
-                {% if user.is_authenticated %}
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'logout' %}">Logout</a>
-                    </li>
-                {% else %}
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'login' %}">Login</a>
-                    </li>
-                {% endif %}
-            </ul>
-        </div>
-    </nav>
+{% extends 'base.html' %}
+{% block title %}Pet Profiles{% endblock %}
+{% block content %}
     <h1>Pet Profiles</h1>
-    <form method="GET" action="{% url 'pet_profiles:search' %}" class="form-inline mb-3">
-        <input type="text" name="q" class="form-control mr-2" placeholder="Search for pets...">
+    <form method="GET" action="{% url 'pet_profiles:search' %}">
+        <input type="text" name="q" class="form-control mb-3" placeholder="Search for pets...">
         <button type="submit" class="btn btn-primary">Search</button>
     </form>
-    <ul class="list-group">
+    <ul class="list-group mt-3">
         {% for pet in pet_profiles %}
             <li class="list-group-item"><a href="{% url 'pet_profiles:detail' pet.id %}">{{ pet.name }}</a></li>
         {% endfor %}
     </ul>
-    {% if user.is_authenticated %}
-        <a href="{% url 'pet_profiles:create_pet_profile' %}" class="btn btn-success mt-3">Create a new pet profile</a>
-    {% else %}
-        <p><a href="{% url 'login' %}">Login</a> to create a new pet profile.</p>
-    {% endif %}
-</body>
-</html>
+    <a href="{% url 'pet_profiles:create_pet_profile' %}" class="btn btn-success mt-3">Create a new pet profile</a>
+{% endblock %}

@@ -1,11 +1,8 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Pedro's Pals</title>
-</head>
-<body>
-    {% include 'navbar.html' %}
-    <h1>Welcome to Pedro's Pals!</h1>
-    <p>Your one-stop solution for pet meetups.</p>
-</body>
-</html>
+{% extends 'base.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<h1>Welcome to Pedro's Pals!</h1>
+<p>Your one-stop solution for pet meetups.</p>
+{% endblock %}
