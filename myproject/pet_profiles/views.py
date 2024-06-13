@@ -9,6 +9,22 @@ from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib import messages
 from .forms import SignUpForm
+from rest_framework import generics
+from .models import PetProfile
+from rest_framework.permissions import IsAuthenticated 
+from .serializers import PetProfileSerializer
+from .models import PetProfile
+
+
+class PetProfileListCreate(generics.ListCreateAPIView):
+    queryset = PetProfile.objects.all()
+    serializer_class = PetProfileSerializer
+    permission_classes = [IsAuthenticated]
+
+class PetProfileDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = PetProfile.objects.all()
+    serializer_class = PetProfileSerializer
+    permission_classes = [IsAuthenticated]
 
 def index(request):
     pet_profiles = PetProfile.objects.all()
@@ -80,3 +96,7 @@ def login_view(request):
 def logout_view(request):
     logout(request)
     return redirect('login')
+
+def swipe_pets(request):
+    pet_profiles = PetProfile.objects.all()
+    return render(request, 'pet_profiles/swipe.html', {'pet_profiles': pet_profiles})

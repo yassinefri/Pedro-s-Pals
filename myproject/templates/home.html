@@ -1,8 +1,54 @@
-{% extends 'base.html' %}
+<!-- {% extends 'base.html' %}
 
 {% block title %}Home{% endblock %}
 
 {% block content %}
 <h1>Welcome to Pedro's Pals!</h1>
 <p>Your one-stop solution for pet meetups.</p>
+{% endblock %} -->
+
+{% extends "base.html" %}
+
+{% block title %}Pet Profiles{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <header class="text-center">
+        <img id="logo" src="{% static 'images/signup_image.png' %}" alt="Signup Image" class="signup-image">
+    </header>
+
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+            <!-- Images des animaux ici -->
+            {% for pet in pets %}
+            <div class="swiper-slide">
+                <img src="{{ pet.image.url }}" alt="{{ pet.name }}">
+                <h3>{{ pet.name }}</h3>
+                <p>{{ pet.species }} - {{ pet.breed }}</p>
+            </div>
+            {% endfor %}
+        </div>
+        <!-- Add Pagination -->
+        <div class="swiper-pagination"></div>
+        <!-- Add Navigation -->
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+    </div>
+</div>
+
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+<script>
+    var swiper = new Swiper('.swiper-container', {
+        slidesPerView: 1,
+        spaceBetween: 10,
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+        },
+    });
+</script>
 {% endblock %}
