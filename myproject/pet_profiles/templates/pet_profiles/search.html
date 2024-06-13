@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block title %}Search Results{% endblock %}
+{% block content %}
+    <h1>Search Results</h1>
+    <form method="GET" action="{% url 'pet_profiles:search' %}" class="form-inline my-3">
+        <input type="text" name="q" value="{{ query }}" class="form-control mr-2">
+        <button type="submit" class="btn btn-primary">Search</button>
+    </form>
+    <ul class="list-group">
+        {% for pet in results %}
+            <li class="list-group-item"><a href="{% url 'pet_profiles:detail' pet.id %}">{{ pet.name }} ({{ pet.species }})</a></li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'pet_profiles:index' %}" class="btn btn-secondary mt-3">Back to profiles</a>
+{% endblock %}
