@@ -1,13 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Logout</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-</head>
-<body class="container">
-    {% include 'navbar.html' %}
-    <h2 class="my-4">Logout</h2>
+{% extends 'base.html' %}
+
+{% block title %}Logout{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h2>Logout</h2>
     <p>You have been logged out. <a href="{% url 'login' %}">Login again</a></p>
-</body>
-</html>
+</div>
+{% endblock %}

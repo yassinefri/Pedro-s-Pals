@@ -1,13 +1,13 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponseRedirect
 from django.urls import reverse
 from .models import PetProfile
 from .forms import PetProfileForm
 from django.db.models import Q
 from django.contrib.auth.decorators import login_required
-from django.shortcuts import render, redirect
-from django.contrib.auth import login, authenticate
+from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.forms import UserCreationForm
+from django.contrib import messages
 from .forms import SignUpForm
 
 def index(request):
@@ -45,18 +45,38 @@ def signup(request):
     if request.method == 'POST':
         form = SignUpForm(request.POST)
         if form.is_valid():
-            form.save()
+            user = form.save()
             username = form.cleaned_data.get('username')
             raw_password = form.cleaned_data.get('password1')
             user = authenticate(username=username, password=raw_password)
             login(request, user)
-            return redirect('index')
+            return redirect('home')
+        else:
+            error_message = ' '.join([' '.join(e) for e in form.errors.values()])
+            messages.error(request, error_message)
     else:
         form = SignUpForm()
-    return render(request, 'registration/signup.html', {'form': form})
+    return render(request, 'registration/signup_login.html', {'form': form})
 
 def home(request):
     if request.user.is_authenticated:
         return render(request, 'home.html', {'username': request.user.username})
     else:
         return render(request, 'home.html', {'username': None})
+
+def login_view(request):
+    if request.method == 'POST':
+        username = request.POST['username']
+        password = request.POST['password']
+        user = authenticate(request, username=username, password=password)
+        if user is not None:
+            login(request, user)
+            return redirect('home')
+        else:
+            messages.error(request, 'Invalid login credentials.')
+            return render(request, 'registration/signup_login.html', {'view': 'login'})
+    return render(request, 'registration/signup_login.html', {'view': 'login'})
+
+def logout_view(request):
+    logout(request)
+    return redirect('login')
