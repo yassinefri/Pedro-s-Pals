@@ -8,12 +8,20 @@
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet">
+    <style>
+        .signup-image {
+            display: block;
+            margin: 0px 10px 0px; /* Ajustez cette valeur pour déplacer l'image vers le haut */
+            max-width: 100px; /* Ajustez cette valeur selon vos besoins */
+        }
+    </style>
 </head>
 <body>
     <!-- NavBar -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">Pedro's Pals</a>
+                <img src="{% static 'images/signup_image.png' %}" alt="Signup Image" class="signup-image">
+            </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
