@@ -15,12 +15,13 @@
             max-width: 100px; /* Ajustez cette valeur selon vos besoins */
         }
     </style>
+    {% block extra_css %}{% endblock %}
 </head>
 <body>
     <!-- NavBar -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
-                <img src="{% static 'images/signup_image.png' %}" alt="Signup Image" class="signup-image">
+            <img src="{% static 'images/signup_image.png' %}" alt="Signup Image" class="signup-image">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -72,5 +73,6 @@
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"></script>
+    {% block extra_js %}{% endblock %}
 </body>
 </html>
